@@ -12,7 +12,7 @@
 
 #include "ocam_functions.h"
 
-int main(int argc, char *argv[])
+int main1(int argc, char *argv[])
 {   
   /* --------------------------------------------------------------------*/
   /* Read the parameters of the omnidirectional camera from the TXT file */

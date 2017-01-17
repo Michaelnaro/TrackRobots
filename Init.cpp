@@ -3,7 +3,7 @@
 #include "uEye.h"
 #include <stdio.h>
 #include <stddef.h>
-#include <opencv\cv.hpp>
+#include <opencv/cv.hpp>
 
 
 void hsvParametersInit();

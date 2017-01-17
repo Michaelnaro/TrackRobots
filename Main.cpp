@@ -1,5 +1,5 @@
-#include <opencv\cv.hpp>
-#include <opencv\highgui.h>
+#include <opencv/cv.hpp>
+#include <opencv/highgui.h>
 #include <iostream>
 
 // TODO - change to relative path
@@ -197,7 +197,7 @@ int main( int argc, char** argv )
 				sharedData.theta			=	getThetaFromGyro();  // TODO - FIXME: Read camera angle from an external sensor
 				sharedData.timestamp		=	timerFrame;
 
-				elapsedTime = _difftime64(clock(), timerFrame);
+				elapsedTime = (clock() - timerFrame);
 				// Display current frame number and computation time
 				// TODO - disp(['Frame = ', num2str(nFrames), '. Computation time = ', num2str(elapsedTime)]);
 				systemParameters.addRobots = false;

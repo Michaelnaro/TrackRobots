@@ -8,8 +8,8 @@
 #ifndef GLOBAL_STRUCTS_DEF_H_
 #define GLOBAL_STRUCTS_DEF_H_
 
-#include <opencv\cv.hpp>
-#include <opencv\highgui.h>
+#include <opencv/cv.hpp>
+#include <opencv/highgui.h>
 
 using namespace cv;
 

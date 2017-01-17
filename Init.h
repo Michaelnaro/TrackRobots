@@ -4,8 +4,8 @@
 #include "UserConfig.h"
 #include "GlobalStructsDef.h"
 
-#include <opencv\cv.hpp>
-#include <opencv\highgui.h>
+#include <opencv/cv.hpp>
+#include <opencv/highgui.h>
 #include "Camera_i.h"
 
 

@@ -536,8 +536,7 @@ void Camera_i::displayTrackingResults(SharedData sharedData)
 	{
 		Track track = m_tracks[m_assignedTracksIndexes[i]];
 		circle(m_frame_RGB, track.centroid, 1, RED, 2);	// centroid
-		_itoa(track.id, charStr, 10);
-		str1 = (string) charStr;
+		str1 = std::to_string(track.id);
 		putText(m_frame_RGB, str1 , Point2d(track.centroid.x + 5, track.centroid.y+5), 1, 1, RED);
 		if(track.age > 40)
 		{
@@ -551,46 +550,36 @@ void Camera_i::displayTrackingResults(SharedData sharedData)
 		putText(m_frame_RGB, str1 , Point2d(track.centroid.x + 5, track.centroid.y+5), 1, 1, RED);
 	}
 	
-	_itoa(currentFrameIndex, charStr, 10);
-	str1 = (string) charStr;
+	str1 = std::to_string(currentFrameIndex);
 	putText(m_frame_RGB, "Frame Number: " + str1, Point2d(5, 15), 1, 1, YELLOW);
 	
-	_itoa(sharedData.timestamp, charStr, 10);
-	str1 = (string) charStr;
+	str1 = std::to_string(sharedData.timestamp);
 	putText(m_frame_RGB, "Time: " + str1, Point2d(5, 30), 1, 1, YELLOW);
 
-	_itoa(sharedData.theta, charStr, 10);
-	str1 = (string) charStr;
+	str1 = std::to_string(sharedData.theta);
 	putText(m_frame_RGB, "Angle: " + str1, Point2d(5, 45), 1, 1, YELLOW);
 	
 	putText(m_frame_RGB, "Robots data: ", Point2d(5, 60), 1, 1, YELLOW);
 	
 	for(int robotInd = 0; robotInd < sharedData.distances.size(); robotInd++)
 	{
-		_itoa(robotInd, charStr, 10);
-		str1 = (string) charStr;
+		str1 = std::to_string(robotInd);
 		putText(m_frame_RGB, "Robot Index: " + str1, Point2d(5, 75 + robotInd * 65), 1, 1, YELLOW);
 		
-		_itoa(sharedData.distances[robotInd], charStr, 10);
-		str1 = (string) charStr;
-		_itoa(((int)(sharedData.distances[robotInd] * 1000)) % 1000, charStr, 10);
-		str1 += "." + (string) charStr;
+		str1 = std::to_string(sharedData.distances[robotInd]);
+		
+		str1 += "." +  std::to_string(((int)(sharedData.distances[robotInd] * 1000)) % 1000);
 		putText(m_frame_RGB, "Robot Distance: " + str1, Point2d(5, 90 + robotInd * 65), 1, 1, YELLOW);
 
-		_itoa(sharedData.locations[robotInd].x, charStr, 10);
-		str1 = (string) charStr;
-		_itoa(sharedData.locations[robotInd].y, charStr, 10);
-		str2 = (string) charStr;
+		str1 = std::to_string(sharedData.locations[robotInd].x);
+		str2 = std::to_string(sharedData.locations[robotInd].y);
 		putText(m_frame_RGB, "Robot Location: (" + str1 + ", " + str2 + ")", Point2d(5, 105 + robotInd * 65), 1, 1, YELLOW);
 
-		_itoa(abs(sharedData.positions[robotInd].x), charStr, 10);
-		str1 = (sharedData.positions[robotInd].x >= 0) ? (string) charStr : "-" + (string) charStr;
-		_itoa(abs(((int)(sharedData.positions[robotInd].x * 1000)) % 1000), charStr, 10);
-		str1 += "." + (string) charStr;
-		_itoa(abs(sharedData.positions[robotInd].y), charStr, 10);
-		str2 = (sharedData.positions[robotInd].y >= 0) ? (string) charStr : "-" + (string) charStr;
-		_itoa(abs(((int)(sharedData.positions[robotInd].y * 1000)) % 1000), charStr, 10);
-		str2 += "." + (string) charStr;
+		str1 = (sharedData.positions[robotInd].x >= 0) ? std::to_string(abs(sharedData.positions[robotInd].x)) : "-" + (string) charStr;
+		str1 += "." + std::to_string(abs(((int)(sharedData.positions[robotInd].x * 1000)) % 1000));
+
+		str2 = (sharedData.positions[robotInd].y >= 0) ? std::to_string(abs(sharedData.positions[robotInd].y)) : "-" + (string) charStr;
+		str2 += "." + std::to_string(abs(((int)(sharedData.positions[robotInd].y * 1000)) % 1000));
 		putText(m_frame_RGB, "Robot Position: (" + str1 + ", " + str2 + ")", Point2d(5, 120 + robotInd * 65), 1, 1, YELLOW);
 	}
 	try
@@ -834,7 +823,7 @@ bool Camera_i::detectTable(Mat imborder, int attempts)
 		 // imshow("bw_inv", bw_inv);
 		// waitKey(1);	
 		/* Fill holes 
-		* bw_dilate - input image,  Point(bw_dilate.cols/2 ,bw_dilate.rows/2) – Starting point: image center
+		* bw_dilate - input image,  Point(bw_dilate.cols/2 ,bw_dilate.rows/2) ? Starting point: image center
 		* 255 - New value of the repainted domain pixels (White color)
 		* filledSize Optional output parameter set by the function to the minimum bounding rectangle of the repainted domain
 		*/

@@ -1,8 +1,8 @@
 #ifndef ICAMERA_H_
 #define ICAMERA_H_
 
-#include <opencv\cv.hpp>
-#include <opencv\highgui.h>
+#include <opencv/cv.hpp>
+#include <opencv/highgui.h>
 #include <vector>
 
 #include "UserConfig.h"
