@@ -82,6 +82,6 @@
 #define RED					    Scalar(  0,  0, 255 )		/* Red color      */
 #define BLACK					Scalar(  0,  0, 0 )		/* Red color      */
 
-#define VIDEO_FILE_PATH "C:\\Users\\Michael\\Documents\\Visual Studio 2012\\Projects\\TrackRobotsCppOOP\\TrackRobots\\4Robots_3.avi"
+#define VIDEO_FILE_PATH "/home/odroid/TrackRobots/4Robots_3.avi"
 
 #endif /* USER_CONFIG_H_ */
